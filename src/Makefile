@@ -13,22 +13,11 @@ DAEMONPATH=$(DEPS_PATH)/libdaemon/libdaemon
 DAEMONPATH_IDIR=$(DAEMONPATH)
 DAEMONPATH_LDIR=$(DAEMONPATH)/libdaemon/.libs
 
-#LIBEVENT_PATH=$(DEPS_PATH)/libevent/libevent
-#LIBEVENT_IDIR=$(LIBEVENT_PATH)/include
-#LIBEVENT_LDIR=$(LIBEVENT_PATH)/.libs
-
 JEMALLOC_PATH=$(DEPS_PATH)/jemalloc/jemalloc
 JEMALLOC_IDIR=$(JEMALLOC_PATH)/include/jemalloc
 JEMALLOC_LDIR=$(JEMALLOC_PATH)/lib
 
-#GLIB_PATH=$(DEPS_PATH)/glib/glib
-#GLIB_IDIRS=-I$(GLIB_PATH) -I$(GLIB_PATH)/glib
-#GLIB_LDIRS=-L$(GLIB_PATH)/glib/.libs -L$(GLIB_PATH)/gthread/.libs
-#GLIB_LIB=-pthread -lgthread-2.0 -lglib-2.0
-#GLIB_LDIRS=-L$(GLIB_PATH)/glib/.libs -L$(GLIB_PATH)/gthread/.libs -L$(GLIB_PATH)/gmodule/.libs
-#GLIB_LIB=-pthread -lgmodule-2.0 -lgthread-2.0 -lglib-2.0
-
-LIBCONFIG_PATH=$(DEPS_PATH)/libconfig/libconfig-1.4.9
+LIBCONFIG_PATH=$(DEPS_PATH)/libconfig/libconfig
 LIBCONFIG_IDIR=-I$(LIBCONFIG_PATH)/lib
 LIBCONFIG_LDIR=-L$(LIBCONFIG_PATH)/lib/.libs
 
