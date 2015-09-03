@@ -65,33 +65,6 @@ architecture.txt
 #sqlite
 deps/sqlite3/sqlite-amalgamation-3080403/
 
-#jemalloc source
-deps/jemalloc/jemalloc-3.6.0/
-
-#libdaemon
-deps/libdaemon/libdaemon-0.14/
-
-#mariadb client library
-deps/mariadb-client-library/mariadb_client-2.0.0-Linux-x86/
-deps/mariadb-client-library/mariadb_client-2.0.0-Linux-x86_64/
-deps/mariadb-client-library/mariadb_client-2.0.0-src/
-deps/mariadb-client-library/mariadb-connector-c-2.1.0-src/
-
-#glib
-deps/glib/glib-2.40.0/
-
-#libevent
-deps/libevent/libevent-2.0.22-stable/
-
-#memcached
-deps/memcached/memcached-1.4.20/
-
-#libconfig
-deps/libconfig/libconfig-1.4.9/
-
-#re2
-deps/re2/re2/
-
 test/.vagrant
 .DS_Store
 proxysql-tests.ini
