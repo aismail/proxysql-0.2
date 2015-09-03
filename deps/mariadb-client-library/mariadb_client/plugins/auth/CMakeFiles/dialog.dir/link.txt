@@ -1,0 +1,1 @@
+/usr/bin/gcc   -Wunused -Wno-uninitialized -O2 -g -DDBUG_OFF -dynamiclib -Wl,-headerpad_max_install_names   -o dialog.dylib -install_name /Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/plugins/auth/dialog.dylib CMakeFiles/dialog.dir/dialog.c.o CMakeFiles/dialog.dir/__/__/libmariadb/get_password.c.o 

@@ -1,0 +1,8 @@
+libdir=/home/aismail/proxysql-0.2/deps/libdaemon/libdaemon/libdaemon/.libs
+includedir=/home/aismail/proxysql-0.2/deps/libdaemon/libdaemon
+
+Name: libdaemon
+Description: a lightweight C library that eases the writing of UNIX daemons
+Version: 0.14
+Libs: -L${libdir} -R${libdir} -ldaemon
+Cflags: -D_REENTRANT -I${includedir}

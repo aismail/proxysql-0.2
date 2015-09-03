@@ -1,0 +1,7 @@
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/libmariadb/CMakeFiles/LIBMYSQL_SYMLINKS.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/plugins/auth/CMakeFiles/dialog.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/libmariadb/CMakeFiles/libmariadb.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/mariadb_config/CMakeFiles/mariadb_config.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/libmariadb/CMakeFiles/mariadb_obj.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/libmariadb/CMakeFiles/mariadbclient.dir
+/Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/plugins/auth/CMakeFiles/mysql_clear_password.dir

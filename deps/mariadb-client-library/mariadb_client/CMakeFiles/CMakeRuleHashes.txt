@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+89398a8910ac6a615980c8a775dc1d41 libmariadb/CMakeFiles/LIBMYSQL_SYMLINKS
+bb504a4d3d4ee10dab0e32f6f99eac19 libmariadb/libmysql.dylib

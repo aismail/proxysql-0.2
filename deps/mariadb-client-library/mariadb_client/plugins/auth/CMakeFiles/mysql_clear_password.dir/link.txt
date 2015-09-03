@@ -1,0 +1,1 @@
+/usr/bin/gcc   -Wunused -Wno-uninitialized -O2 -g -DDBUG_OFF -dynamiclib -Wl,-headerpad_max_install_names   -o mysql_clear_password.dylib -install_name /Users/aismail/proxysql-0.2/deps/mariadb-client-library/mariadb_client/plugins/auth/mysql_clear_password.dylib CMakeFiles/mysql_clear_password.dir/mariadb_cleartext.c.o 

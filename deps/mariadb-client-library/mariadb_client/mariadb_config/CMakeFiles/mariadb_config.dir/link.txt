@@ -1,0 +1,1 @@
+/usr/bin/gcc   -Wunused -Wno-uninitialized -O2 -g -DDBUG_OFF -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/mariadb_config.dir/mariadb_config.c.o  -o mariadb_config  ../libmariadb/libmariadbclient.a -lpthread -ldl -lm -liconv /usr/lib/libssl.dylib /usr/lib/libcrypto.dylib 
