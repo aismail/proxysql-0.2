@@ -1,13 +1,8 @@
-
-
-
-
 DEPS_PATH=../deps
 
 MARIADB_PATH=$(DEPS_PATH)/mariadb-client-library/mariadb_client
 MARIADB_IDIR=$(MARIADB_PATH)/include
 MARIADB_LDIR=$(MARIADB_PATH)/libmariadb
-
 
 DAEMONPATH=$(DEPS_PATH)/libdaemon/libdaemon
 DAEMONPATH_IDIR=$(DAEMONPATH)
@@ -33,16 +28,11 @@ RE2_IDIR=$(RE2_PATH)
 
 IDIR=../include
 LDIR=../lib
-#IDIRS=-I$(IDIR) -I$(JEMALLOC_IDIR) -I$(MARIADB_IDIR) -I$(LIBEVENT_IDIR) $(GLIB_IDIRS) $(LIBCONFIG_IDIR)
-#LDIRS=-L$(LDIR) -L$(JEMALLOC_LDIR) -L$(MARIADB_LDIR) -L$(LIBEVENT_LDIR) $(GLIB_LDIRS) $(LIBCONFIG_LDIR)
 IDIRS=-I$(IDIR) -I$(JEMALLOC_IDIR) -I$(MARIADB_IDIR) $(LIBCONFIG_IDIR) -I$(DAEMONPATH_IDIR)
 LDIRS=-L$(LDIR) -L$(JEMALLOC_LDIR) $(LIBCONFIG_LDIR) -L$(RE2_PATH)/obj -L$(INJECTION_PATH) -L$(LIBEVENT_LDIR) -L$(MARIADB_LDIR) -L$(DAEMONPATH_LDIR)
-#LDIRS=-L$(LDIR) -L$(JEMALLOC_LDIR) -L$(MARIADB_LDIR) $(GLIB_LDIRS) $(LIBCONFIG_LDIR)
-
 
 CFLAGS=-std=c++0x $(IDIRS) $(OPTZ) $(DEBUG)
 LIBS=-rdynamic -Wl,-Bstatic -lconfig -lproxysql -ldaemon -ljemalloc -lconfig++ -lre2 -linjection -levent -lmariadbclient -Wl,-Bdynamic -lpthread -lm -lz -lrt -ldl -lcrypto -lssl $(EXTRALINK)
-#LIBS=-rdynamic -Wl,-Bstatic -lproxysql -ljemalloc -levent $(GLIB_LIB) -Wl,-Bdynamic -ldl -lpthread -lm -lz -lrt
 
 LIBPROXYSQLAR=$(LDIR)/libproxysql.a
 
@@ -52,7 +42,6 @@ ODIR= obj
 CC=g++
 #CC=clang
 
-
 EXECUTABLE=proxysql
 
 _OBJ = main.o proxysql_global.o
@@ -61,10 +50,8 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: %.cpp
 	$(CC) -c -o $@ $< $(CFLAGS) -Wall
 
-
-
 proxysql: $(ODIR) $(OBJ) $(LIBPROXYSQLAR)
-	$(CC) -o $@ $(OBJ) $(LIBPROXYSQLAR) $(CFLAGS) $(LDIRS) $(LIBS)
+	$(CC) $(CFLAGS) $(LDIRS) $(LIBS) -o $@ $(OBJ)
 
 $(ODIR):
 	mkdir $(ODIR)
