@@ -1,8 +1,16 @@
+## Table of Contents
+
+* [Changing username/password doesn't work](#changing-usernamepassword-doesnt-work)
+* [Example of how to change the admin user/password](#example-of-how-to-change-the-admin-userpassword)
+* [Example of how to save the username/password for connecting to ProxySQL and making queries to backend servers](#example-of-how-to-save-the-usernamepassword-for-connecting-to-proxysql-and-making-queries-to-backend-servers)
+* [Configuration changes are not persisted](#configuration-changes-are-not-persisted-after-a-restart-of-proxysql-why)
+* [Can ProxySQL do automatic failover?](#can-proxysql-do-automatic-failover)
+
 ## Changing username/password doesn't work
 
 ProxySQL has a 3-tiered configuration system inspired from routers. The configuration file will only be taken into account the first time you start ProxySQL up, and when you manually force it to reset all settings, loading the ones from the configuration file (`--initial` flag).
 
-### Example on how to change the admin user/password
+### Example of how to change the admin user/password
 
 First, we'll connect to the default admin port with the default user/password
 combination, which will allow us to change these.
@@ -93,7 +101,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 ```
 
-### Example on how to save the username/password for connecting to ProxySQL and making queries to backend servers
+### Example of how to save the username/password for connecting to ProxySQL and making queries to backend servers
 
 Username/password combinations for connecting to the backend servers are stored in a different place (so not in admin variables, like we did for the admin interface, for simplicity purposes). There is one `(user, password)` combination allowed for each `hostgroup` (which is a set of backend servers grouped together).
 
