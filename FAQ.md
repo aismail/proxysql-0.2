@@ -179,3 +179,14 @@ How does it complement them?
 * monitors the value of the `read_only` variable and knows where to direct traffic in case the replication manager performs failover. In this way, the application does not know a failover has been performed and does not need to be reconfigured in any way
 * in case of multiple servers from which reading is done, ProxySQL is the only proxy on the market that can detect the failure of a query while it is executing and redirect the query to another backend server without the application ever knowing there was a glitch
 
+## Does ProxySQL support HA (high-availability)?
+
+ProxySQL does support high-availability. Let's take the classical example of a set of webnodes that are stateless, accessing a database as the result of the user traffic. That kind of application is usually scaled horizontally by putting a load balancer in front of the webnodes, and adding/removing webnodes as needed to that layer.
+
+One way ProxySQL can be used in this case to provide HA is:
+* deploy the MySQL cluster (1 master + N slaves, for example)
+* deploy ProxySQL locally on each webnode, and configure the master + slaves in hostgroups as needed
+* when ProxySQL fails, consider that the whole webnode failed, take it out of the load balancer and replace it with a healthy node started from scratch
+* when the MySQL master fails, either manually promote a slave to be a master (depending on the replication lag, hardware, etc.) or use a replication manager to promote the slave to a master automatically. At this point, you can reconfigure ProxySQL or you can use its replication topology detection features to let it reconfigure itself automatically
+
+Given this scenario, depending on how fast you react and how you configure your MySQL cluster inside ProxySQL, one can obtain virtually 0 downtime (or very close to 0) from the application standpoint.
