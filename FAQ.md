@@ -190,3 +190,12 @@ One way ProxySQL can be used in this case to provide HA is:
 * when the MySQL master fails, either manually promote a slave to be a master (depending on the replication lag, hardware, etc.) or use a replication manager to promote the slave to a master automatically. At this point, you can reconfigure ProxySQL or you can use its replication topology detection features to let it reconfigure itself automatically
 
 Given this scenario, depending on how fast you react and how you configure your MySQL cluster inside ProxySQL, one can obtain virtually 0 downtime (or very close to 0) from the application standpoint.
+
+## Does ProxySQL support multiplexing?
+
+ProxySQL does support multiplexing, because it is able to understand and interpret the MySQL protocol packets.
+
+Therefore, one connection to the proxy does not equal one connection to the backend servers. In fact, they are completely independent. This allows the proxy to use a number of strategies to improve both the reliability from the MySQL client perspective and the throughput:
+* it keeps a connection pool open for each hostgroup - so it can reuse a connection that is already open when it makes sense to save the back and forth it takes to establish a connection
+* because it interprets the MySQL protocol, it's able to detect when a query returns an error and direct that query to another healthy host in the hostgroup. From the MySQL client perspective, no error occured
+* within a hostgroup, it automatically shuns the servers that are returning too many errors too fast, so that it preserves the health of the MySQL cluster from the MySQL client perspective
